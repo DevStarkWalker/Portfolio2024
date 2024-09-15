@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background gradient for the entire page */
+body {
+  background: linear-gradient(180deg, #300404, #000000); /* Maroon to black gradient */
+  margin: 0;
+  font-family: 'Press Start 2P', system-ui;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  height: 100vh;
+}
+
+/* Left section: fixed, with limited width */
+.left-section {
+  width: 40%;
+  background: transparent;
+  padding: 30px;
+  color: #cba135;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space the content to keep items at the top and bottom */
+  
+}
+
+/* Container to hold intro-text at the top, nav links in the middle */
+.left-content {
+  display: flex;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center-align horizontally */
+  justify-content: center;
+  width: 100%;
+  flex-grow: 1; /* Ensure it grows to fill space between the top and bottom */
+}
+
+/* Right section: adjust width and margin to push it to the right */
+.right-section {
+  width: 55%; /* Takes the rest of the screen after the left section */
+  margin-left: 50%; /* This value should match the left-section width */
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Ensure the content-container takes up the entire height, enabling proper scrolling */
+.content-container {
+  width: 55%; /* Match the right-section width */
+  height: 100%; /* Take up the full height */
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.page-container {
+  display: flex;
+  height: 100vh;
+ }
+
+.intro-text {
+  align-items: center;
+}
+
+.intro-text h1, .intro-text h2 {
+  text-align: center; /* Center-align the text */
+  margin-top: 20px;
+}
+
+/* Apply the new font to your header */
+h1 {
+  font-family: "Matemasie", sans-serif;
+  font-size: 3em;
+  color: #cba135; /* Gold color */
+  font-weight: 600;
+  font-style: normal;
+  align-items: center;
+  bottom: 0;
+}
+
+h2 {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding-top: 20 px;
+  font-variation-settings:
+    "wdth" 100;
+  color: #cba135; /* Gold color */
+  letter-spacing: 1px; /* Optional: add slight letter spacing */
+}
+
+p{
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  color: #cba135; /* Gold color */
+  letter-spacing: 1px; 
+  
+}
+
+
+m1{
+  font-family: "Matemasie", sans-serif;
+  font-size: 2em;
+  color: #cba135; /* Gold color */
+  font-weight: 600;
+  font-style: normal;
+  align-items: right;
+}
+
+/* Fixed Navigation Links */
+.fixed-nav-links {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  width: 25%;
+  gap: 10px; /* Space between the buttons */
+  margin-top: 20px; /* Add space between intro text and nav links */
+}
+
+/* Style the navigation links */
+.nav-link {
+  font-family: "Matemasie", sans-serif;
+  color: #99710c;
+  font-size: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+
+/* Active and hover states */
+.nav-link.active, .nav-link:hover {
+  color: #cba135; /* Darker gold on hover or active */
+}
+
+/* Bar color for active link or hover */
+.nav-link.active::after, .nav-link:hover::after {
+  background-color: #cba135; /* Bar color */
+}
+
+/* Remove outline and border on focus */
+.nav-link:focus {
+  outline: none; /* Remove default focus outline */
+  border: none; /* Ensure no border is shown */
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #cba135;
+}
+
+.social-icons a:hover {
+  color: #99710c; /* Darker gold on hover */
+}
+
+
+.content-section {
+  padding: 20px;
+  color: #cba135; /* Gold for section text */
+  margin-bottom: 30px;
+  border-bottom: 1px solid #99710c; /* Darker gold border */
+}
+
+.job, .project {
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.button {
+  display: inline-block;
+
+  background-color: transparent;
+  color: #cba135; /* Gold text color */
+  box-shadow: none;
+  transition: all 150ms ease-in-out;
+  border-radius: 25px;
+  font-family: "Matemasie", sans-serif;
+  font-size: medium;
+  letter-spacing: 2px;
+  text-align: center;
+  text-decoration: none;
+  /* Ensure there's no default white border */
+  border-color: #cba135;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px 0 #cba135 inset, 0 0 10px 4px #cba135;
+}
+
+.button a {
+  color: #cba135; /* Gold for text */
+  text-decoration: none;
+}
+
+/* Button focus/active state: Optional if the white border appears when clicked or focused */
+.button:focus, .button:active {
+  outline: none;
+  border-color: #cba135; /* Ensure border stays gold on focus/active */
+}

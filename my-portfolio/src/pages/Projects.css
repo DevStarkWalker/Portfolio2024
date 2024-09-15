@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* Apply the new font to your header */
+h1 {
+  font-family: "Matemasie", sans-serif;
+  font-size: 4em;
+  color: #cba135; /* Gold color */
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+    font-family: "Righteous", sans-serif;
+    font-size:x-large;
+    color: #cba135;
+}
+
+li {
+    font-family: "Righteous", sans-serif;
+    font-size: x-large;
+    color: #cba135;
+}
+
+p {
+    font-family: "Righteous", sans-serif;
+    font-size: x-large;
+    color: #cba135;
+}
