@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './App.css'; 
 
 
+
 const App = () => {
   const [activeSection, setActiveSection] = useState('about');
 
@@ -159,13 +160,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-             {/* Full projects list link */}
-            <div className="full-projects-list">
-              <a href="/projects" className="see-full-projects">See full projects list</a>
-            </div>
           </section>
-
-          
         </div>
       </div>
     </div>
