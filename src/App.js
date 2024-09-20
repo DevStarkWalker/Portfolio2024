@@ -40,6 +40,28 @@ const App = () => {
     };
   }, []);
 
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.content-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, { threshold: 0.5 }); // Adjust threshold as needed
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <div className="page-container">
       <div className="left-section">
@@ -70,10 +92,10 @@ const App = () => {
           </nav>
         </div>
         <div className="social-icons">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/devstarkwalker" target="_blank" rel="noopener noreferrer">
             <FaGithub size={30} />
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/devon-walker-7780a921a/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={30} />
           </a>
         </div>

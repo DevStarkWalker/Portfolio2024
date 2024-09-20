@@ -104,6 +104,10 @@ m1{
 
 @media (max-width: 768px) {
 
+    /* Default styles without cursor effects */
+  #cursor {
+    display: none; /* Hide the cursor by default */
+  }
   
   .content-section {
     padding: 20px;
@@ -136,6 +140,7 @@ m1{
     justify-content: center; /* Center the icons */
     flex-direction: row; /* Keep row layout for social icons */
     margin-bottom: 20px; /* Add space below */
+    margin-top: 20px;
   }
 
   .nav-link {
@@ -267,6 +272,9 @@ m1{
     flex-grow: 1; /* Ensure it grows to fill space between the top and bottom */
   }
 
+  .social-icons{
+    margin-left: 100px;
+  }
   /* Right section: adjust width and margin to push it to the right */
   .right-section {
     flex: 1;
@@ -322,6 +330,7 @@ m1{
   text-decoration: none;
   padding: 10px 0;
   transition: color 0.3s ease, transform 0.3s ease; /* Add transition for transform */
+  justify-content: center;
 }
 }
 
@@ -357,6 +366,8 @@ m1{
 .social-icons {
   display: flex;
   gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
 
 .social-icons a {
