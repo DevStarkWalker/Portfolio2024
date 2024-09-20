@@ -6,6 +6,10 @@ html {
   padding: 0;
 }
 
+root{
+  width: 100%;
+}
+
 #cursor {
   position: absolute;
   width: 20px;
@@ -29,85 +33,19 @@ html {
 }
 
 
-/* Background gradient for the entire page */
 body {
-  background: linear-gradient(180deg, #300404, #000000); /* Maroon to black gradient */
+  background: linear-gradient(180deg, #300404, #000000);
+  background-size: cover;
+  background-attachment: fixed;
   margin: 0;
   font-family: 'Press Start 2P', system-ui;
   display: flex;
   flex-direction: column;
-  align-items: right;
-  height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .right-section {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .left-section {
-    width: 100%;
-    padding: 20px;
-    margin-left: 0;
-  }
-
-  .content-container {
-    width: 90%;
-    margin: auto;
-  }
-}
-
-/* Left section: fixed, with limited width */
-.left-section {
-  width: 40%;
-  background: transparent;
-  padding: 30px;
-  color: #cba135;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Space the content to keep items at the top and bottom */
-  
-}
-
-/* Container to hold intro-text at the top, nav links in the middle */
-.left-content {
-  display: flex;
-  margin-bottom: 50px;
-  margin-left: 100px;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center-align horizontally */
-  justify-content: center;
+  align-items: center; /* Center align on the main axis */
   width: 100%;
-  flex-grow: 1; /* Ensure it grows to fill space between the top and bottom */
 }
 
-/* Right section: adjust width and margin to push it to the right */
-.right-section {
-  width: 55%; /* Takes the rest of the screen after the left section */
-  margin-left: 50%; /* This value should match the left-section width */
-  padding: 20px;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
 
-/* Ensure the content-container takes up the entire height, enabling proper scrolling */
-.content-container {
-  width: 65%; /* Match the right-section width */
-  height: 100%; /* Take up the full height */
-  padding: 20px;
-
-  box-sizing: border-box;
-}
-
-.page-container {
-  display: flex;
-  height: 100vh;
- }
 
 .intro-text {
   align-items: center;
@@ -163,17 +101,217 @@ m1{
   align-items: right;
 }
 
-/* Fixed Navigation Links */
-.fixed-nav-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Change from 'right' to 'flex-end' for correct alignment */
-  width: 25%;
-  gap: 10px; /* Space between the buttons */
-  margin-top: 20px; /* Add space between intro text and nav links */
+
+@media (max-width: 768px) {
+
+  
+  .content-section {
+    padding: 20px;
+    color: #cba135; /* Gold for section text */
+    margin-bottom: 30px;
+    border-bottom: 1px solid #99710c; /* Darker gold border */
+    font-family:"Matemasie", sans-serif;
+    text-align: center;
+  }
+  /* Stack the sections vertically */
+  .page-container {
+    flex-direction: column; /* Ensure the flex direction is column */
+    width: 100%;
+  }
+
+  .fixed-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the links */
+    justify-content: center; /* Center the links vertically */
+    width: 100%; /* Full width */
+    margin-top: 50px; /* Reset margin */
+    gap: 10px; /* Space between the buttons */
+  }
+
+  /* Adjust social icons to be at the top */
+  .social-icons {
+    order: 1; /* Move to the top */
+    display: flex;
+    justify-content: center; /* Center the icons */
+    flex-direction: row; /* Keep row layout for social icons */
+    margin-bottom: 20px; /* Add space below */
+  }
+
+  .nav-link {
+    font-family: "Matemasie", sans-serif;
+    color: #99710c;
+    font-size: 1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 10px 0; /* Ensure padding does not push elements */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex; /* Ensure it acts as a flex item */
+    justify-content: center; /* Center content within the link */
+    width: 100%; /* Full width for clickable area */
+  }
+  /* Other styles remain unchanged */
+  .left-section,
+  .right-section {
+    width: 100%; /* Set both sections to full width */
+  }
+
+  .left-section {
+    order: 2; /* Left section is second */
+    padding: 0px; /* Adjust padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align horizontally */
+  }
+
+  .right-section {
+    order: 3; /* Right section is third */
+    align-items: center; /* Center-align horizontally */
+  }
+
+  /* Ensure content-container is also full width */
+  .content-container {
+    width: 100%; /* Take full width */
+    padding: 10px; /* Maintain padding */
+  }
+
+  /* Adjust project grid for mobile */
+  .project-list {
+    display: block; /* Stack projects vertically */
+  }
+
+  .project {
+    margin-bottom: 20px; /* Space between projects */
+  }
+
+    /* Container to hold intro-text at the top, nav links in the middle */
+    .left-content {
+      order: 3;
+      display: flex;
+      margin-bottom: 50px;
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center-align horizontally */
+      justify-content: center;
+      width: 100%;
+      flex-grow: 1; /* Ensure it grows to fill space between the top and bottom */
+    }
+  
+  .intro-text{
+    margin-bottom: 50 px;
+  }
+
+    .intro-text h1{
+      text-align: center; /* Center-align the text */
+      margin-top: 200px;
+    }
+
+    .intro-text h2 {
+      text-align: center; /* Center-align the text */
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: large;
+    }
+  /* Job tags section */
+  .job-tags {
+    margin-top:  10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Project Tags Container */
+  .project-tags {
+    margin-top:  20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+  }
 }
 
-/* Style the navigation links */
+
+@media (min-width: 769px){
+
+    /* Left section: fixed, with limited width */
+  .left-section {
+    flex: 1;
+    width: 40%;
+    background: transparent;
+    padding: 30px;
+    color: #cba135;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space the content to keep items at the top and bottom */
+    
+  }
+
+  /* Container to hold intro-text at the top, nav links in the middle */
+  .left-content {
+    display: flex;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align horizontally */
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1; /* Ensure it grows to fill space between the top and bottom */
+  }
+
+  /* Right section: adjust width and margin to push it to the right */
+  .right-section {
+    flex: 1;
+    width: 55%; /* Takes the rest of the screen after the left section */
+    margin-left: 50%; /* This value should match the left-section width */
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  /* Ensure the content-container takes up the entire height, enabling proper scrolling */
+  .content-container {
+    width: 65%; /* Match the right-section width */
+    height: 100%; /* Take up the full height */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+
+  .content-section {
+    padding: 20px;
+    color: #cba135; /* Gold for section text */
+    margin-bottom: 30px;
+    border-bottom: 1px solid #99710c; /* Darker gold border */
+    font-family:"Matemasie", sans-serif;
+
+  }
+
+  .page-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row; /* Default direction */
+  }
+
+    /* Fixed Navigation Links */
+  .fixed-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Change from 'right' to 'flex-end' for correct alignment */
+    width: 25%;
+    gap: 10px; /* Space between the buttons */
+    margin-top: 20px; /* Add space between intro text and nav links */
+  }
+
+  /* Style the navigation links */
 .nav-link {
   font-family: "Matemasie", sans-serif;
   color: #99710c;
@@ -185,6 +323,8 @@ m1{
   padding: 10px 0;
   transition: color 0.3s ease, transform 0.3s ease; /* Add transition for transform */
 }
+}
+
 /* Active and hover states */
 .nav-link.active, .nav-link:hover {
   color: #cba135; /* Darker gold on hover or active */
@@ -216,8 +356,6 @@ m1{
 /* Social icons */
 .social-icons {
   display: flex;
-
-  
   gap: 15px;
 }
 

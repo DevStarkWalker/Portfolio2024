@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa'; 
 import './App.css'; 
 
@@ -9,53 +9,75 @@ const App = () => {
 
   const scrollToSection = (id) => {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(id); // Update the active section state
+    setActiveSection(id);
   };
 
-  document.addEventListener('mousemove', (e) => {
+  useEffect(() => {
+    // Cursor Effect
     const cursor = document.getElementById('cursor');
-    cursor.style.left = `${e.pageX}px`;
-    cursor.style.top = `${e.pageY}px`;
-  });
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    const speed = 0.1;
+
+    const updateCursor = () => {
+      cursorX += (mouseX - cursorX) * speed;
+      cursorY += (mouseY - cursorY) * speed;
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+      requestAnimationFrame(updateCursor);
+    };
+
+    const handleMouseMove = (e) => {
+      mouseX = e.pageX;
+      mouseY = e.pageY;
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    updateCursor();
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove); // Clean up listener on unmount
+    };
+  }, []);
 
   return (
     <div className="page-container">
       <div className="left-section">
-  <div className="left-content">
-    <div className="intro-text">
-      <h1>Hello, I'm Dev</h1>
-      <h2>A Software Engineer & Game Developer.</h2>
-    </div>
-    <nav className="fixed-nav-links">
-      <button
-        className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-        onClick={() => scrollToSection('about')}
-      >
-        About Me
-      </button>
-      <button
-        className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
-        onClick={() => scrollToSection('experience')}
-      >
-        Experience
-      </button>
-      <button
-        className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
-        onClick={() => scrollToSection('projects')}
-      >
-        Projects
-      </button>
-    </nav>
-  </div>
-  <div className="social-icons">
-    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-      <FaGithub size={30} />
-    </a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-      <FaLinkedin size={30} />
-    </a>
-  </div>
-</div>
+        <div className="left-content">
+          <div className="intro-text">
+            <h1>Hello, I'm Dev</h1>
+            <h2>A Software Engineer & Game Developer.</h2>
+          </div>
+          <nav className="fixed-nav-links">
+            <button
+            className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
+            onClick={() => scrollToSection('about')}
+            >
+              About Me
+            </button>
+            <button
+              className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
+              onClick={() => scrollToSection('experience')}
+            >
+              Experience
+            </button>
+            <button
+              className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
+              onClick={() => scrollToSection('projects')}
+            >
+              Projects
+            </button>
+          </nav>
+        </div>
+        <div className="social-icons">
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <FaGithub size={30} />
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={30} />
+          </a>
+        </div>
+      </div>
 
       <div className="right-section">
         {/* Fixed Navigation Links */}
@@ -69,55 +91,55 @@ const App = () => {
           <section id="experience" className="content-section">
 
             <div className="job">
-              <div class="job-dates">2024 - Present</div>
-              <div class="job-title">Unity Software Developer (T2)</div>
-              <p class="job-description">
+              <div className="job-dates">2024 - Present</div>
+              <div className="job-title">Unity Software Developer (T2)</div>
+              <p className="job-description">
                 As a key Unity software developer at CACI, I play a pivotal role in the development of high-fidelity training simulations for the U.S. Navy under Department of Defense contracts. With security clearance, I lead the creation of immersive, cutting-edge simulation experiences, collaborating closely with stakeholders to ensure each project meets rigorous standards for both technical precision and security protocols.
               </p>
-              <div class="job-tags">
-                <span class="tag">C#</span>
-                <span class="tag">Unity</span>
-                <span class="tag">Plastic</span>
+              <div className="job-tags">
+                <span className="tag">C#</span>
+                <span className="tag">Unity</span>
+                <span className="tag">Plastic</span>
               </div>
             </div>
             <div className="job">
-              <div class="job-dates">2021 - 2023</div>
-              <div class="job-title">Undergrad & Graduate Research Assistant</div>
-              <p class="job-description">
+              <div className="job-dates">2021 - 2023</div>
+              <div className="job-title">Undergrad & Graduate Research Assistant</div>
+              <p className="job-description">
               Developed a high-quality, educationl, virtual reality app for a local school, helping teach students about the different careers in the maritime and ship building industry. Worked with a a small cross functional team of 3D artists and animators to acheive deadlines while tackling the systems and tools, leading development on the back end.
               </p>
-              <div class="job-tags">
-                <span class="tag">C#</span>
-                <span class="tag">C++</span>
-                <span class="tag">Unity</span>
-                <span class="tag">Unreal</span>
-                <span class="tag">GitHub</span>
+              <div className="job-tags">
+                <span className="tag">C#</span>
+                <span className="tag">C++</span>
+                <span className="tag">Unity</span>
+                <span className="tag">Unreal</span>
+                <span className="tag">GitHub</span>
               </div>
             </div>
             <div className="job">
-              <div class="job-dates">2021 - 2023</div>
-              <div class="job-title">Student at Old Dominion University</div>
-              <p class="job-description">
+              <div className="job-dates">2021 - 2023</div>
+              <div className="job-title">Student at Old Dominion University</div>
+              <p className="job-description">
               I specialized in game design and development, focusing on game mechanics, interactive media, and immersive technology, while mastering tools and techniques for creating engaging digital experiences...
               </p>
-              <div class="job-tags">
-                <span class="tag">C++</span>
-                <span class="tag">C#</span>
-                <span class="tag">GitHub</span>
-                <span class="tag">Java</span>
+              <div className="job-tags">
+                <span className="tag">C++</span>
+                <span className="tag">C#</span>
+                <span className="tag">GitHub</span>
+                <span className="tag">Java</span>
               </div>
             </div>
             <div className="job">
-              <div class="job-dates">2020 - 2021</div>
-              <div class="job-title">Student at Tidewater Community College</div>
-              <p class="job-description">
+              <div className="job-dates">2020 - 2021</div>
+              <div className="job-title">Student at Tidewater Community College</div>
+              <p className="job-description">
               I developed a strong foundation in programming, algorithms, and software development, gaining essential skills in problem-solving and computational thinking.
               </p>
-              <div class="job-tags">
-              <span class="tag">C++</span>
-                <span class="tag">C#</span>
-                <span class="tag">Java</span>
-                <span class="tag">GitHub</span>
+              <div className="job-tags">
+              <span className="tag">C++</span>
+                <span className="tag">C#</span>
+                <span className="tag">Java</span>
+                <span className="tag">GitHub</span>
               </div>
             </div>
           </section>
